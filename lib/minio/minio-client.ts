@@ -3,12 +3,12 @@ import { Client } from "minio";
 import { v4 } from "uuid";
 
 // Types
-interface UploadResponse {
+interface IUploadResponse {
   docId: string;
   url: string;
 }
 
-interface DocumentMetadata {
+interface IDocumentMetadata {
   contentType: string;
   size: number;
 }
@@ -29,7 +29,7 @@ const bucket = process.env.MINIO_BUCKET as string;
 /**
  * Creates a presigned URL for uploading a document and returns document ID
  */
-const createDocument = async (file: File, expirySeconds = 3600): Promise<UploadResponse> => {
+const createDocument = async (file: File, expirySeconds = 3600): Promise<IUploadResponse> => {
   try {
     const docId = v4();
 
@@ -115,7 +115,7 @@ const deleteDocument = async (docId: string): Promise<void> => {
 /**
  * Gets document metadata without downloading the content
  */
-const getDocumentMetadata = async (docId: string): Promise<DocumentMetadata> => {
+const getDocumentMetadata = async (docId: string): Promise<IDocumentMetadata> => {
   try {
     const stat = await minioClient.statObject(bucket, docId);
     return {
@@ -183,6 +183,6 @@ export {
   getDocumentUrl,
   getDocumentMetadata,
   documentExists,
-  type UploadResponse,
-  type DocumentMetadata,
+  type IUploadResponse,
+  type IDocumentMetadata,
 };

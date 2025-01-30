@@ -18,7 +18,16 @@ const eslintConfig = [
   },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    files: ["app/**/*.ts", "app/*.tsx", "*.ts", "*.tsx", "db/**/*.ts", "db/*.ts"],
+    files: [
+      "app/**/*.ts",
+      "app/*.tsx",
+      "*.ts",
+      "*.tsx",
+      "db/**/*.ts",
+      "db/*.ts",
+      "lib/**/*.{ts,tsx}",
+      "lib/*.{ts,tsx}",
+    ],
     plugins: {
       "@typescript-eslint": typescript,
       import: importPlugin,

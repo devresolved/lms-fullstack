@@ -16,6 +16,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.65.1",
+    "@tanstack/react-query-devtools": "^5.65.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tanstack/eslint-plugin-query": "^5.65.0",
     "@types/node": "^20",
     "@types/pg": "^8.11.11",
     "@types/react": "^19",
